@@ -1,5 +1,7 @@
 """Plot the expression of each gene in each sample."""
 
+from pathlib import Path
+
 import matplotlib.pyplot as plt
 import pandas as pd
 
@@ -17,5 +19,6 @@ ax.set_ylabel("Expression (CPM)")
 ax.set_title("Gene expression: control vs treated")
 plt.tight_layout()
 
-plt.savefig("data/expression.png", dpi=150)
-print("Saved data/expression.png")
+Path("results").mkdir(exist_ok=True)
+plt.savefig("results/expression.png", dpi=150)
+print("Saved results/expression.png")

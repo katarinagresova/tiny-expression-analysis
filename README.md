@@ -8,6 +8,8 @@ replicates each.
 `data/example_counts.csv` has raw read counts: one row for each gene, one column for each sample. It is toy data, made
 up for a demo.
 
+The raw counts are read-only. The script never changes them, and it writes all output to `results/`.
+
 ## Output
 
-`data/expression.png`: the expression of each gene in each sample, in counts per million (CPM).
+`results/expression.png`: the expression of each gene in each sample, in counts per million (CPM).
