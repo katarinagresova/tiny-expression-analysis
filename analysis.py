@@ -1,0 +1,21 @@
+"""Plot the expression of each gene in each sample."""
+
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# Raw read counts: one row for each gene, one column for each sample
+counts = pd.read_csv("data/example_counts.csv", index_col="gene")
+
+# Normalize for sequencing depth: counts per million (CPM)
+cpm = counts / counts.sum() * 1_000_000
+
+# Plot: control in blue, treated in orange
+ax = counts.plot.bar(figsize=(10, 5), rot=0, width=0.8,
+                     color=["#9ecae1", "#3182bd", "#fdae6b", "#e6550d"])
+ax.set_xlabel("")
+ax.set_ylabel("Expression (CPM)")
+ax.set_title("Gene expression: control vs treated")
+plt.tight_layout()
+
+plt.savefig("data/expression.png", dpi=150)
+print("Saved data/expression.png")
