@@ -12,7 +12,7 @@ counts = pd.read_csv("data/example_counts.csv", index_col="gene")
 cpm = counts / counts.sum() * 1_000_000
 
 # Plot: control in blue, treated in orange
-ax = cpm.plot.bar(figsize=(10, 5), rot=0, width=0.8,
+ax = counts.plot.bar(figsize=(14, 5), rot=0, width=0.8,
                   color=["#9ecae1", "#3182bd", "#fdae6b", "#e6550d"])
 ax.set_xlabel("")
 ax.set_ylabel("Expression (CPM)")
